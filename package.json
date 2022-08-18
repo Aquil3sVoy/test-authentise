@@ -72,10 +72,7 @@
       "public/*",
       "./*.d.ts",
       "App.tsx",
-      "serviceWorker.ts",
-      "./modules/base/baseActions.tsx",
-      "./modules/base/baseService.tsx",
-      "./modules/hooks/CustomHoook.tsx"
+      "serviceWorker.ts"
     ]
   }
 }

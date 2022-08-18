@@ -6,9 +6,10 @@ import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
 import RenderWithRedux from "src/views/home/RenderWithRedux";
 import RenderWithHook from "../../views/home/RenderWithHook";
+import ListComponent from "src/component/list/ListComponent";
 
 export const handlers = [
-  rest.get("/breeds/image/random", (req, res, ctx) => {
+  rest.get("/breeds/image/random", (_req, res, ctx) => {
     return res(
       ctx.json({
         message:
@@ -38,5 +39,11 @@ describe("should render with redux", () => {
     const { container } = render(<RenderWithHook />);
     const button = container.querySelector("button") as HTMLButtonElement;
     userEvent.click(button);
+  });
+  it("should render ListTable", async () => {
+    let img =
+      "https://images.dog.ceo/breeds/terrier-kerryblue/n02093859_1003.jpg";
+
+    render(<ListComponent loading={false} img={img} onCLick={() => {}} />);
   });
 });
